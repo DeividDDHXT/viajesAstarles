@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:viajes_astales/screens/button_navigate.dart';
 import 'package:viajes_astales/screens/reviw.dart';
 
-class Descripcion_plase_screen extends StatelessWidget {
-  const Descripcion_plase_screen({super.key});
+class DescriptionPlaceScreen extends StatelessWidget {
+  final String namePlace;
+  final String descriptionPlace;
+  final int starts;
+  const DescriptionPlaceScreen(
+      {super.key,
+      required this.namePlace,
+      required this.descriptionPlace,
+      required this.starts});
 
   @override
   Widget build(BuildContext context) {
@@ -11,29 +19,27 @@ class Descripcion_plase_screen extends StatelessWidget {
       fontSize: 30.0,
       fontWeight: FontWeight.bold,
     );
-    const descriptionText =
-        'Do sit est eiusmod et eiusmod officia aute fugiat.\n\n Aliquip adipisicing ';
 
     final star = Container(
       margin: const EdgeInsets.only(
-        top: 100.0,
+        top: 323.0,
         right: 3.0,
       ),
       child: const Icon(
         Icons.star,
-        color: Colors.amber,
+        color: Color.fromARGB(255, 9, 225, 120),
       ),
     );
-    final titleAndStars = Row(
+    final titleAndStarts = Row(
       children: [
         Container(
           margin: const EdgeInsets.only(
-            top: 100.0,
+            top: 320.0,
             left: 20.0,
             right: 20.0,
           ),
-          child: const Text(
-            "Duwill Elia",
+          child: Text(
+            namePlace,
             style: titleStyle,
             textAlign: TextAlign.left,
           ),
@@ -51,20 +57,19 @@ class Descripcion_plase_screen extends StatelessWidget {
         right: 20.0,
       ),
       child: Text(
-        descriptionText,
+        descriptionPlace,
         style: GoogleFonts.lato(
           textStyle: const TextStyle(
-            fontSize: 14,
+            fontSize: 13,
           ),
         ),
       ),
     );
-
     return Column(
       children: [
-        titleAndStars,
+        titleAndStarts,
         description,
-        const Review(),
+        const ButtonNavigate(buttonText:'navegate'),
       ],
     );
   }
