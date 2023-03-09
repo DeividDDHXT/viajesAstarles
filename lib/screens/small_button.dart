@@ -1,16 +1,32 @@
 import 'package:flutter/material.dart';
 
-
-class MyWidget extends StatefulWidget {
-  const MyWidget({super.key});
+class SmallButton extends StatefulWidget {
+  const SmallButton({super.key});
 
   @override
-  State<MyWidget> createState() => _MyWidgetState();
+  State<SmallButton> createState() => _SmallButtonState();
 }
 
-class _MyWidgetState extends State<MyWidget> {
+class _SmallButtonState extends State<SmallButton> {
+  bool pressed = false;
+  void onPressedFav() {
+    setState(() {
+      if (!pressed) {
+        pressed = true;
+      } else {
+        pressed = false;
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return FloatingActionButton(
+      onPressed: onPressedFav,
+      backgroundColor: Color.fromARGB(229, 17, 226, 174),
+      mini: true,
+      tooltip: 'Fav',
+      child: Icon(pressed ? Icons.favorite : Icons.favorite_border),
+    );
   }
 }
