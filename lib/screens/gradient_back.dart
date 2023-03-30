@@ -8,12 +8,12 @@ class GradientBack extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 250.0,
+      height: 300.0,
       decoration: const BoxDecoration(
         gradient: LinearGradient(
             colors: [
               Color.fromARGB(245, 1, 38, 65),
-              Color.fromARGB(229, 17, 226, 174),
+              Color.fromARGB(228, 198, 226, 17),
             ],
             begin: FractionalOffset(0.2, 0.0),
             end: FractionalOffset(1.0, 0.6),
